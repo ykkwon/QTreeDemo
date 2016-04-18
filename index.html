@@ -33,57 +33,52 @@
 
 		<img src='wwdcScholar.gif' title='Video Walkthrough' height="400px" alt='Video Walkthrough' />
 		<ul>
-			<li>
-				<h2>Integrate the library from QTree-objc Github</h2>
-				<a href="https://github.com/blackm00n/QTree-objc" target="_blank">QTree-objc Github</a>
-				<br></br>
-				<span style="color: #11740a; font-style: italic;">In my implementation, I add both <a href="QTreeSwiftDemo/ClusterAnnotationView.h" target="_blank">ClusterAnnotationView.h</a> and <a href="QTreeSwiftDemo/ClusterAnnotationView.m" target="_blank">ClusterAnnotationView.m</a> to the QTree Library. You can override it or customize or your own CusterAnnotation</span>&nbsp;
+			<li style="list-style-type: none;">
+				<h2>STEP 1: Integrate the library from <a href="https://github.com/blackm00n/QTree-objc" target="_blank"> QTree-objc Github Repo</a></h2>
+				<span style="color: #11740a; font-style: italic;">In my implementation, I added both <a href="https://github.com/WWDCScholars/QTreeDemo/blob/master/QTreeSwiftDemo/ClusterAnnotationView.h" target="_blank">ClusterAnnotationView.h</a> and <a href="https://github.com/WWDCScholars/QTreeDemo/blob/master/QTreeSwiftDemo/ClusterAnnotationView.m" target="_blank">ClusterAnnotationView.m</a> of the QTree Library. You can override it or customize or your own ClusterAnnotation</span>&nbsp;
 			</li>
-			<li>
-				<h2>Create Your Data Model</h2>
-				<p>I create a <a href="QTreeSwiftDemo/Scholar.swift" target="_blank">Scholar.swift</a> file to represent my data model</p>
+			<li style="list-style-type: none;">
+				<h2>STEP 2: Create Your Data Model</h2>
+				<p>Create a swift file that contains your data model. As an example, i've created a <a href="https://github.com/WWDCScholars/QTreeDemo/blob/master/QTreeSwiftDemo/Scholar.swift" target="_blank">Scholar.swift</a> file to represent my data model.</p>
 				<img src='screenshot/Scholar.png' height="300px"/>
 
 			</li>
-			<li>
-				<h2>Add MapView to your viewController</h2>
-				<p>I just drag MKMapView to my viewController inside storyboard directly</p>
+			<li style="list-style-type: none;">
+				<h2>STEP 3: Add MapView to your View Controller</h2>
+				<p>Just dragged the MKMapView to your View Controller inside storyboard directly.</p>
 				<img src='screenshot/AddMap.png' height="400px"/>
 			</li>
-			<li>
-				<h2>Add ScholarAnnotation</h2>
-				<p>I create a <a href="QTreeSwiftDemo/ScholarAnnotation.swift" target="_blank">ScholarAnnotation.swift</a> file to represent my ScholarAnnotation shown on the map</p>
+			<li style="list-style-type: none;">
+				<h2>STEP 4: Add ScholarAnnotation</h2>
+				<p>Scholar Annotations are <span style="color:red;"> ___________ (Add Image of what scholar annotation is)</span>. As an example, i've created a <a href="https://github.com/WWDCScholars/QTreeDemo/blob/master/QTreeSwiftDemo/ScholarAnnotation.swift" target="_blank">ScholarAnnotation.swift</a> file to represent my ScholarAnnotation shown on the map.</p>
 				<img src='screenshot/ScholarAnnotation.png' height="300px"/>
 			</li>
-			<li>
-				<h2>Implement MKMapViewDelegate</h2>
-				<a href="QTreeSwiftDemo/LocationViewController.swift" target="_blank">Finished LocationViewController.swift</a>
+			<li style="list-style-type: none;">
+				<h2>STEP 5: Implement MKMapViewDelegate</h2>
+				<p>Lastly, we will implement the MKMapViewDelegate. Inside the <a href="https://github.com/WWDCScholars/QTreeDemo/blob/master/QTreeSwiftDemo/LocationViewController.swift" target="_blank">LocationViewController.swift</a>:</p>
 				<ol>
-					<li><h2>Add fine me button</h2></li>
-					<p>Change you viewDidLoad method to the following.</p>
+					<li><h2>Create a "Find me" button</h2></li>
+					<p style="background-color:#f1f1f1;">Change you viewDidLoad method to the following:</p>
 					<img src='screenshot/viewDidLoad.png' height="600px"/>
-					<p>Also don't forget to add buttonAction.</p>
+					<p style="background-color:#f1f1f1;">Then add a function for the button action. In my example, i've named it - buttonAction.</p>
 					<img src='screenshot/buttonAction.png' height="100px"/>
 
-					<li><h2>init the data model</h2></li>
-					<p>Intialize/Declare some of the global varaibles.</p>
+					<li><h2>Initialize the data model</h2></li>
+					<p style="background-color:#f1f1f1;">Initialize/Declare some of the global variables.</p>
 					<img src='screenshot/initModel.png' height="300px"/>
 
-					<li><h2>implement regionDidChangeAnimated</h2></li>
-					<p>the place where we call reloadAnnotations.</p>
+					<li><h2>Implement regionDidChangeAnimated</h2></li>
+					<p style="background-color:#f1f1f1;"><span style="color:red;">regionDidChangeAnimated is ________.</span> This is where we will call the  reloadAnnotations method.</p>
 					<img src='screenshot/regionDidChangeAnimated.png' height="50px"/>
 					
-					<li><h2>implement reloadAnnotations</h2></li>
-					<p>Basically everytime user change the map scale,we will call reloadAnnotations.</p>
+					<li><h2>Implement reloadAnnotations</h2></li>
+					<p style="background-color:#f1f1f1;">Every time user change the map scale, we will call reloadAnnotations. This will <span style="color:red;">________.</span></p>
 					<img src='screenshot/reloadAnnotations.png' height="600px"/>
 
 
-					<li><h2>implement viewForAnnotation</h2></li>
-					<p>we configure views for different annotation.</p>
-					<img src='screenshot/viewForAnnotation.png' height="400px"/>
-
-
-					
+					<li><h2>Implement viewForAnnotation</h2></li>
+					<p style="background-color:#f1f1f1;">We now can configure different views for different annotation.</p>
+					<img src='screenshot/viewForAnnotation.png' height="400px"/>					
 				</ol>
 
 
