@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 import MapKit
-class scholarAnnotation: NSObject, MKAnnotation, QTreeInsertable {
+class ScholarAnnotation: NSObject, MKAnnotation, QTreeInsertable {
     var coordinate: CLLocationCoordinate2D
     var title: String?
     var subtitle : String?

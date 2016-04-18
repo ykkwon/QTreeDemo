@@ -30,11 +30,7 @@ class LocationViewController: UIViewController,CLLocationManagerDelegate,MKMapVi
     //init the model
     var allScholars:[Scholar] = [Scholar(name:"1",latitude: 40.714243,longitude: -73.972128,location: "New York, USA"),Scholar(name:"2",latitude: 41.714243,longitude: -73.972128,location: "New York, USA"),Scholar(name:"3",latitude: 42.714243,longitude: -73.972128,location: "New York, USA"),Scholar(name:"4",latitude: 40.743,longitude: -73.972128,location: "New York, USA"),Scholar(name:"5",latitude: 40.753,longitude: -73.972128,location: "New York, USA"),Scholar(name:"6",latitude: 45.714243,longitude: -73.2128,location: "New York, USA"),Scholar(name:"7",latitude: 40.714243,longitude: -72.972128,location: "New York, USA"),Scholar(name:"8",latitude: 40.714243,longitude: -71.972128,location: "New York, USA"),Scholar(name:"9",latitude: 40.714243,longitude: -73.972128,location: "New York, USA"),Scholar(name:"10",latitude: 40.714243,longitude: -70.972128,location: "New York, USA"),Scholar(name:"11",latitude: 40.714243,longitude: -76.972128,location: "New York, USA"),Scholar(name:"12",latitude: 40.714243,longitude: -77.972128,location: "New York, USA"),Scholar(name:"13",latitude: 40.714243,longitude: -78.972128,location: "New York, USA"),Scholar(name:"14",latitude: 40.714243,longitude: -79.972128,location: "New York, USA"),Scholar(name:"15",latitude: 40.714243,longitude: -80.972128,location: "New York, USA")]
     
-//    var cacheArray : [Scholar] = []
     var currentScholar:Scholar?
-    
-    
-    var index = 0
     var qTree = QTree()
     var myLocation : CLLocationCoordinate2D?
     
@@ -74,7 +70,7 @@ class LocationViewController: UIViewController,CLLocationManagerDelegate,MKMapVi
         
         for scholar in allScholars {
             
-            let annotation = scholarAnnotation(coordinate: CLLocationCoordinate2DMake(scholar.latitude, scholar.longitude), title: scholar.name!,subtitle:scholar.location)
+            let annotation = ScholarAnnotation(coordinate: CLLocationCoordinate2DMake(scholar.latitude, scholar.longitude), title: scholar.name!,subtitle:scholar.location)
             self.qTree.insertObject(annotation)
         }
         
@@ -112,11 +108,9 @@ class LocationViewController: UIViewController,CLLocationManagerDelegate,MKMapVi
             if annotationView == nil {
                 annotationView = ClusterAnnotationView(cluster: annotation)
             }
-            //annotationView!.canShowCallout = true
-            //annotationView!.rightCalloutAccessoryView = UIButton.buttonWithType(UIButtonType.DetailDisclosure) as! UIButton
             annotationView!.cluster = annotation
             return annotationView
-        } else if annotation.isKindOfClass(scholarAnnotation.classForCoder()) {
+        } else if annotation.isKindOfClass(ScholarAnnotation.classForCoder()) {
             var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier("ScholarAnnotation")
             if pinView == nil {
                 pinView = MKAnnotationView(annotation: annotation, reuseIdentifier: "ScholarAnnotation")
@@ -128,11 +122,6 @@ class LocationViewController: UIViewController,CLLocationManagerDelegate,MKMapVi
             } else {
                 pinView?.annotation = annotation
             }
-            let imageView = UIImageView(image: UIImage(named: ""))
-            
-            
-            pinView!.leftCalloutAccessoryView = imageView
-            
             pinView?.image = UIImage(named: "scholarMapAnnotation")
             return pinView
         }
@@ -144,7 +133,6 @@ class LocationViewController: UIViewController,CLLocationManagerDelegate,MKMapVi
         if self.isViewLoaded() == false {
             return
         }
-        //self.cacheImage?.removeAll(keepCapacity: false)
         let mapRegion = self.mapView.region
         let minNonClusteredSpan = min(mapRegion.span.latitudeDelta, mapRegion.span.longitudeDelta) / 5
         let objects = self.qTree.getObjectsInRegion(mapRegion, minNonClusteredSpan: minNonClusteredSpan) as NSArray
@@ -154,14 +142,11 @@ class LocationViewController: UIViewController,CLLocationManagerDelegate,MKMapVi
                 let c = object as? QCluster
                 let neihgbours = self.qTree.neighboursForLocation((c?.coordinate)!, limitCount: NSInteger((c?.objectsCount)!)) as NSArray
                 for nei in neihgbours {
-                    //println((nei.title)!!)
-                    
                     _ = self.allScholars.filter({
                         return $0.name == (nei.title)!!
                     })
                 }
             } else {
-                //println((object.title)!!)
                 _ = self.allScholars.filter({
                     return $0.name == (object.title)!!
                 })
@@ -170,8 +155,6 @@ class LocationViewController: UIViewController,CLLocationManagerDelegate,MKMapVi
                 
             }
         }
-        //self.tableView.clearsContextBeforeDrawing = true
-        //self.tableView.reloadData()
         
         let annotationsToRemove = (self.mapView.annotations as NSArray).mutableCopy() as! NSMutableArray
         annotationsToRemove.removeObject(self.mapView.userLocation)

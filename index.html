@@ -32,7 +32,43 @@
 		<p style="margin-top:0px;">by <a href="https://github.com/hao44le" target="_blank" style="text-decoration:none;"><b>Gelei Chen</b></a></p>
 
 		<img src='wwdcScholar.gif' title='Video Walkthrough' height="400px" alt='Video Walkthrough' />
-	</div>
+		<ul>
+			<li>
+				<h2>Integrate the library from QTree-objc Github</h2>
+				<a href="https://github.com/blackm00n/QTree-objc" target="_blank">QTree-objc Github</a>
+				<br></br>
+				<span style="color: #11740a; font-style: italic;">In my implementation, I add both <a href="QTreeSwiftDemo/ClusterAnnotationView.h" target="_blank">ClusterAnnotationView.h</a> and <a href="QTreeSwiftDemo/ClusterAnnotationView.m" target="_blank">ClusterAnnotationView.m</a> to the QTree Library. You can override it or customize or your own CusterAnnotation</span>&nbsp;
+			</li>
+			<li>
+				<h2>Create Your Data Model</h2>
+				<p>I create a <a href="QTreeSwiftDemo/Scholar.swift" target="_blank">Scholar.swift</a> file to represent my data model</p>
+				<img src='screenshot/Scholar.png' height="300px"/>
+
+			</li>
+			<li>
+				<h2>Add MapView to your viewController</h2>
+				<p>I just drag MKMapView to my viewController inside storyboard directly</p>
+				<img src='screenshot/AddMap.png' height="400px"/>
+			</li>
+			<li>
+				<h2>Add ScholarAnnotation</h2>
+				<p>I create a <a href="QTreeSwiftDemo/ScholarAnnotation.swift" target="_blank">ScholarAnnotation.swift</a> file to represent my ScholarAnnotation shown on the map</p>
+				<img src='screenshot/ScholarAnnotation.png' height="300px"/>
+			</li>
+			<li>
+				<h2>Implement MKMapViewDelegate</h2>
+				<ol>
+					<li><h2>Add fine me button</h2></li>
+					<li><h2>init the data model</h2></li>
+					<li><h2>implement reloadAnnotations</h2></li>
+					<li><h2>implement viewForAnnotation</h2></li>
+					<li><h2>implement regionDidChangeAnimated</h2></li>
+				</ol>
+
+
+			</li>
+		</ol>
+
 
 	<div id="footer">
 		<p>
