@@ -9,3 +9,5 @@ QTree-objc : https://github.com/blackm00n/QTree-objc
 # Video Walkthrough: 
 
 <img src='wwdcScholar.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+Note: If you want to forked or clone only the main files, switch to branch master. 
