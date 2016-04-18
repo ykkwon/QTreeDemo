@@ -11,7 +11,7 @@ import MapKit
 import CoreLocation
 
 
-class LocationViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelegate,UIViewControllerTransitioningDelegate  {
+class LocationViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelegate  {
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBAction func changeMapTypeTaped(sender: UISegmentedControl) {
@@ -28,10 +28,9 @@ class LocationViewController: UIViewController,CLLocationManagerDelegate,MKMapVi
     let locationManager = CLLocationManager()
     
     //init the model
-    var scholarArray:[Scholar] = [Scholar(name:"1",latitude: 40.714243,longitude: -73.972128,location: "New York, USA"),Scholar(name:"2",latitude: 41.714243,longitude: -73.972128,location: "New York, USA"),Scholar(name:"3",latitude: 42.714243,longitude: -73.972128,location: "New York, USA"),Scholar(name:"4",latitude: 40.743,longitude: -73.972128,location: "New York, USA"),Scholar(name:"5",latitude: 40.753,longitude: -73.972128,location: "New York, USA"),Scholar(name:"6",latitude: 45.714243,longitude: -73.2128,location: "New York, USA"),Scholar(name:"7",latitude: 40.714243,longitude: -72.972128,location: "New York, USA"),Scholar(name:"8",latitude: 40.714243,longitude: -71.972128,location: "New York, USA"),Scholar(name:"9",latitude: 40.714243,longitude: -73.972128,location: "New York, USA"),Scholar(name:"10",latitude: 40.714243,longitude: -70.972128,location: "New York, USA"),Scholar(name:"11",latitude: 40.714243,longitude: -76.972128,location: "New York, USA"),Scholar(name:"12",latitude: 40.714243,longitude: -77.972128,location: "New York, USA"),Scholar(name:"13",latitude: 40.714243,longitude: -78.972128,location: "New York, USA"),Scholar(name:"14",latitude: 40.714243,longitude: -79.972128,location: "New York, USA"),Scholar(name:"15",latitude: 40.714243,longitude: -80.972128,location: "New York, USA")]
+    var allScholars:[Scholar] = [Scholar(name:"1",latitude: 40.714243,longitude: -73.972128,location: "New York, USA"),Scholar(name:"2",latitude: 41.714243,longitude: -73.972128,location: "New York, USA"),Scholar(name:"3",latitude: 42.714243,longitude: -73.972128,location: "New York, USA"),Scholar(name:"4",latitude: 40.743,longitude: -73.972128,location: "New York, USA"),Scholar(name:"5",latitude: 40.753,longitude: -73.972128,location: "New York, USA"),Scholar(name:"6",latitude: 45.714243,longitude: -73.2128,location: "New York, USA"),Scholar(name:"7",latitude: 40.714243,longitude: -72.972128,location: "New York, USA"),Scholar(name:"8",latitude: 40.714243,longitude: -71.972128,location: "New York, USA"),Scholar(name:"9",latitude: 40.714243,longitude: -73.972128,location: "New York, USA"),Scholar(name:"10",latitude: 40.714243,longitude: -70.972128,location: "New York, USA"),Scholar(name:"11",latitude: 40.714243,longitude: -76.972128,location: "New York, USA"),Scholar(name:"12",latitude: 40.714243,longitude: -77.972128,location: "New York, USA"),Scholar(name:"13",latitude: 40.714243,longitude: -78.972128,location: "New York, USA"),Scholar(name:"14",latitude: 40.714243,longitude: -79.972128,location: "New York, USA"),Scholar(name:"15",latitude: 40.714243,longitude: -80.972128,location: "New York, USA")]
     
-    var cacheArray : [Scholar] = []
-    var viewChanged = false
+//    var cacheArray : [Scholar] = []
     var currentScholar:Scholar?
     
     
@@ -73,7 +72,7 @@ class LocationViewController: UIViewController,CLLocationManagerDelegate,MKMapVi
         self.segmentedControl.layer.cornerRadius = 5.0
         
         
-        for scholar in scholarArray {
+        for scholar in allScholars {
             
             let annotation = scholarAnnotation(coordinate: CLLocationCoordinate2DMake(scholar.latitude, scholar.longitude), title: scholar.name!,subtitle:scholar.location)
             self.qTree.insertObject(annotation)
@@ -145,7 +144,6 @@ class LocationViewController: UIViewController,CLLocationManagerDelegate,MKMapVi
         if self.isViewLoaded() == false {
             return
         }
-        self.cacheArray.removeAll(keepCapacity: false)
         //self.cacheImage?.removeAll(keepCapacity: false)
         let mapRegion = self.mapView.region
         let minNonClusteredSpan = min(mapRegion.span.latitudeDelta, mapRegion.span.longitudeDelta) / 5
@@ -158,28 +156,16 @@ class LocationViewController: UIViewController,CLLocationManagerDelegate,MKMapVi
                 for nei in neihgbours {
                     //println((nei.title)!!)
                     
-                    let tmp = self.scholarArray.filter({
+                    _ = self.allScholars.filter({
                         return $0.name == (nei.title)!!
                     })
-                    if self.cacheArray.indexOf(tmp[0]) != nil {
-                        self.cacheArray.insert(tmp[0], atIndex: self.cacheArray.count)
-                        //self.cacheImage?[tmp[0].picture!] = false
-                    }
-                    
-                    
-                    
                 }
             } else {
                 //println((object.title)!!)
-                let tmp = self.scholarArray.filter({
+                _ = self.allScholars.filter({
                     return $0.name == (object.title)!!
                 })
                 
-                if self.cacheArray.indexOf(tmp[0]) != nil  {
-                    self.cacheArray.insert(tmp[0], atIndex: self.cacheArray.count)
-                    //self.cacheImage?[tmp[0].picture!] = false
-                    
-                }
                 
                 
             }
@@ -199,7 +185,6 @@ class LocationViewController: UIViewController,CLLocationManagerDelegate,MKMapVi
         
     }
     func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        viewChanged = true
         self.reloadAnnotations()
     }
 
