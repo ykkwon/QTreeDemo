@@ -40,18 +40,18 @@
 			<li style="list-style-type: none;">
 				<h2>STEP 2: Create Your Data Model</h2>
 				<p>Create a swift file that contains your data model. As an example, i've created a <a href="https://github.com/WWDCScholars/QTreeDemo/blob/master/QTreeSwiftDemo/Scholar.swift" target="_blank">Scholar.swift</a> file to represent my data model.</p>
-				<img src='screenshot/Scholar.png' height="300px"/>
+				<img src='screenshot/Scholar.png' width="60%"/>
 
 			</li>
 			<li style="list-style-type: none;">
 				<h2>STEP 3: Add MapView to your View Controller</h2>
 				<p>Just dragged the MKMapView to your View Controller inside storyboard directly.</p>
-				<img src='screenshot/AddMap.png' height="400px"/>
+				<img src='screenshot/AddMap.png' width="60%"/>
 			</li>
 			<li style="list-style-type: none;">
 				<h2>STEP 4: Add ScholarAnnotation</h2>
 				<p>Scholar Annotations are <span style="color:red;"> ___________ (Add Image of what scholar annotation is)</span>. As an example, i've created a <a href="https://github.com/WWDCScholars/QTreeDemo/blob/master/QTreeSwiftDemo/ScholarAnnotation.swift" target="_blank">ScholarAnnotation.swift</a> file to represent my ScholarAnnotation shown on the map.</p>
-				<img src='screenshot/ScholarAnnotation.png' height="300px"/>
+				<img src='screenshot/ScholarAnnotation.png' width="65%"/>
 			</li>
 			<li style="list-style-type: none;">
 				<h2>STEP 5: Implement MKMapViewDelegate</h2>
@@ -59,29 +59,27 @@
 				<ol>
 					<li><h2>Create a "Find me" button</h2></li>
 					<p style="background-color:#f1f1f1;">Change you viewDidLoad method to the following:</p>
-					<img src='screenshot/viewDidLoad.png' height="600px"/>
+					<img src='screenshot/viewDidLoad.png' width="100%"/>
 					<p style="background-color:#f1f1f1;">Then add a function for the button action. In my example, i've named it - buttonAction.</p>
-					<img src='screenshot/buttonAction.png' height="100px"/>
+					<img src='screenshot/buttonAction.png' width="65%"/>
 
 					<li><h2>Initialize the data model</h2></li>
 					<p style="background-color:#f1f1f1;">Initialize/Declare some of the global variables.</p>
-					<img src='screenshot/initModel.png' height="300px"/>
+					<img src='screenshot/initModel.png' width="70%"/>
 
 					<li><h2>Implement regionDidChangeAnimated</h2></li>
 					<p style="background-color:#f1f1f1;"><span style="color:red;">regionDidChangeAnimated is ________.</span> This is where we will call the  reloadAnnotations method.</p>
-					<img src='screenshot/regionDidChangeAnimated.png' height="50px"/>
+					<img src='screenshot/regionDidChangeAnimated.png' width="65%"/>
 					
 					<li><h2>Implement reloadAnnotations</h2></li>
 					<p style="background-color:#f1f1f1;">Every time user change the map scale, we will call reloadAnnotations. This will <span style="color:red;">________.</span></p>
-					<img src='screenshot/reloadAnnotations.png' height="600px"/>
+					<img src='screenshot/reloadAnnotations.png' width="80%"/>
 
 
 					<li><h2>Implement viewForAnnotation</h2></li>
 					<p style="background-color:#f1f1f1;">We now can configure different views for different annotation.</p>
-					<img src='screenshot/viewForAnnotation.png' height="400px"/>					
+					<img src='screenshot/viewForAnnotation.png' width="80%"/>					
 				</ol>
-
-
 			</li>
 		</ul>
 	
