@@ -57,12 +57,33 @@
 			</li>
 			<li>
 				<h2>Implement MKMapViewDelegate</h2>
+				<a href="QTreeSwiftDemo/LocationViewController.swift" target="_blank">Finished LocationViewController.swift</a>
 				<ol>
 					<li><h2>Add fine me button</h2></li>
+					<p>Change you viewDidLoad method to the following.</p>
+					<img src='screenshot/viewDidLoad.png' height="600px"/>
+					<p>Also don't forget to add buttonAction.</p>
+					<img src='screenshot/buttonAction.png' height="100px"/>
+
 					<li><h2>init the data model</h2></li>
-					<li><h2>implement reloadAnnotations</h2></li>
-					<li><h2>implement viewForAnnotation</h2></li>
+					<p>Intialize/Declare some of the global varaibles.</p>
+					<img src='screenshot/initModel.png' height="300px"/>
+
 					<li><h2>implement regionDidChangeAnimated</h2></li>
+					<p>the place where we call reloadAnnotations.</p>
+					<img src='screenshot/regionDidChangeAnimated.png' height="50px"/>
+					
+					<li><h2>implement reloadAnnotations</h2></li>
+					<p>Basically everytime user change the map scale,we will call reloadAnnotations.</p>
+					<img src='screenshot/reloadAnnotations.png' height="600px"/>
+
+
+					<li><h2>implement viewForAnnotation</h2></li>
+					<p>we configure views for different annotation.</p>
+					<img src='screenshot/viewForAnnotation.png' height="400px"/>
+
+
+					
 				</ol>
 
 

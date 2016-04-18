@@ -25,7 +25,7 @@ class LocationViewController: UIViewController,CLLocationManagerDelegate,MKMapVi
     }
     @IBOutlet weak var bottomImageView: UIImageView!
     @IBOutlet weak var mapView: MKMapView!
-    let locationManager = CLLocationManager()
+    
     
     //init the model
     var allScholars:[Scholar] = [Scholar(name:"1",latitude: 40.714243,longitude: -73.972128,location: "New York, USA"),Scholar(name:"2",latitude: 41.714243,longitude: -73.972128,location: "New York, USA"),Scholar(name:"3",latitude: 42.714243,longitude: -73.972128,location: "New York, USA"),Scholar(name:"4",latitude: 40.743,longitude: -73.972128,location: "New York, USA"),Scholar(name:"5",latitude: 40.753,longitude: -73.972128,location: "New York, USA"),Scholar(name:"6",latitude: 45.714243,longitude: -73.2128,location: "New York, USA"),Scholar(name:"7",latitude: 40.714243,longitude: -72.972128,location: "New York, USA"),Scholar(name:"8",latitude: 40.714243,longitude: -71.972128,location: "New York, USA"),Scholar(name:"9",latitude: 40.714243,longitude: -73.972128,location: "New York, USA"),Scholar(name:"10",latitude: 40.714243,longitude: -70.972128,location: "New York, USA"),Scholar(name:"11",latitude: 40.714243,longitude: -76.972128,location: "New York, USA"),Scholar(name:"12",latitude: 40.714243,longitude: -77.972128,location: "New York, USA"),Scholar(name:"13",latitude: 40.714243,longitude: -78.972128,location: "New York, USA"),Scholar(name:"14",latitude: 40.714243,longitude: -79.972128,location: "New York, USA"),Scholar(name:"15",latitude: 40.714243,longitude: -80.972128,location: "New York, USA")]
@@ -33,17 +33,19 @@ class LocationViewController: UIViewController,CLLocationManagerDelegate,MKMapVi
     var currentScholar:Scholar?
     var qTree = QTree()
     var myLocation : CLLocationCoordinate2D?
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //request to use user location
         if CLLocationManager.locationServicesEnabled() {
             self.locationManager.requestWhenInUseAuthorization()
+        } else {
+            myLocation = mapView.userLocation.coordinate as CLLocationCoordinate2D
         }
         
-        myLocation = mapView.userLocation.coordinate as CLLocationCoordinate2D
-        
-        
+        //configure the zoomRegin
         let zoomRegion = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2D(latitude: 38.8833, longitude: -77.0167), 10000000, 10000000)
         self.mapView.setRegion(zoomRegion, animated: true)
         mapView.showsUserLocation = true
@@ -53,8 +55,6 @@ class LocationViewController: UIViewController,CLLocationManagerDelegate,MKMapVi
         //The "Find me" button
         let button = UIButton(type: UIButtonType.Custom)
         button.frame = CGRectMake(UIScreen.mainScreen().bounds.width - 55,UIScreen.mainScreen().bounds.height - self.bottomImageView.frame.size.height - 60, 50, 50)
-        
-        
         button.setImage(UIImage(named: "MyLocation"), forState: .Normal)
         button.addTarget(self, action: #selector(LocationViewController.buttonAction(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         button.layer.shadowOpacity = 0.5
@@ -67,7 +67,7 @@ class LocationViewController: UIViewController,CLLocationManagerDelegate,MKMapVi
         
         self.segmentedControl.layer.cornerRadius = 5.0
         
-        
+        //add allScholars to qTree
         for scholar in allScholars {
             
             let annotation = ScholarAnnotation(coordinate: CLLocationCoordinate2DMake(scholar.latitude, scholar.longitude), title: scholar.name!,subtitle:scholar.location)
