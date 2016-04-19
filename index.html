@@ -50,7 +50,9 @@
 			</li>
 			<li style="list-style-type: none;">
 				<h2>STEP 4: Add ScholarAnnotation</h2>
-				<p>Scholar Annotations are <span style="color:red;"> ___________ (Add Image of what scholar annotation is)</span>. As an example, i've created a <a href="https://github.com/WWDCScholars/QTreeDemo/blob/master/QTreeSwiftDemo/ScholarAnnotation.swift" target="_blank">ScholarAnnotation.swift</a> file to represent my ScholarAnnotation shown on the map.</p>
+				<p>Scholar Annotations are the annotaions on mapView that representents each Scholars.</p> 
+				<img src='screenshot/scholarAnnotationDemo.png' width="20%"/>
+				<p>As an example, i've created a <a href="https://github.com/WWDCScholars/QTreeDemo/blob/master/QTreeSwiftDemo/ScholarAnnotation.swift" target="_blank">ScholarAnnotation.swift</a> file to represent my ScholarAnnotation shown on the map.</p>
 				<img src='screenshot/ScholarAnnotation.png' width="65%"/>
 			</li>
 			<li style="list-style-type: none;">
@@ -68,11 +70,11 @@
 					<img src='screenshot/initModel.png' width="70%"/>
 
 					<li><h2>Implement regionDidChangeAnimated</h2></li>
-					<p style="background-color:#f1f1f1;"><span style="color:red;">regionDidChangeAnimated is ________.</span> This is where we will call the  reloadAnnotations method.</p>
+					<p style="background-color:#f1f1f1;">regionDidChangeAnimated is one of the delegate method used by MKMapViewDelegate. This is where we will call the  reloadAnnotations method.</p>
 					<img src='screenshot/regionDidChangeAnimated.png' width="65%"/>
 					
 					<li><h2>Implement reloadAnnotations</h2></li>
-					<p style="background-color:#f1f1f1;">Every time user change the map scale, we will call reloadAnnotations. This will <span style="color:red;">________.</span></p>
+					<p style="background-color:#f1f1f1;">Every time user change the map scale, we will call reloadAnnotations. This will update our mapView correspondingly</p>
 					<img src='screenshot/reloadAnnotations.png' width="80%"/>
 
 
