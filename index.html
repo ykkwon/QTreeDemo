@@ -1,20 +1,28 @@
+<!-- WWDCScholars Github Pages Index HTML Starter -->
+<!-- This is our official Github Page structure*/ -->
+<!-- View Github Page: https://wwdcscholars.github.io */ -->
+<!-- GitHub: https://github.com/wwdcscholars/wwdcscholars.github.io -->
+<!-- License: MIT -->
+
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>WWDCScholars | Adding a Mapview </title>
+	<title>WWDCScholars Tutorial | Adding a Mapview </title>
+	<meta name="description" content="WWDCScholars Tutorials | Adding a MapView used in the Scholars of WWDC App made with love by WWDCScholars all around the world." >
+	<meta name="author" content="WWDCScholars">
+	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
-	<!-- Forked me on Github -->
 	
-
 	<div id="helloBar" style="background-color: #292c36; margin-top:-150px; margin-left:-10px; -webkit-box-shadow:0px 2px 2px #92c86b; -moz-box-shadow:0px 2px 2px #92c86b; box-shadow:0px 2px 2px #92c86b; width:100%; position:fixed; ">
 		<h2 style="color:white; padding-bottom:0px; text-align: center; margin-bottom:-10px;"><img src="https://devimages.apple.com.edgekey.net/wwdc/images/wwdc16-logo.png" /></h2>
 		<p style="color:white; text-align: center; font-size: 13px;" > is back - June 13 - 18, 2016 </p>
 		<p style="color:white; text-align: center; "><a href="https://developer.apple.com/wwdc/scholarships/" target="_blank" style="text-decoration:none;"><b>Apply for a WWDC Scholarship</b></a></p>
 	</div>
 
+	<!-- Forked me on Github -->
 	<a href="https://github.com/WWDCScholars/QTreeDemo/tree/master"><img style="position:fixed; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"></a>
 
 	<div id="head" style="margin-top:150px;">
@@ -37,18 +45,31 @@
 	</div>
 
 	<div class="container">
+		<div class="container">
+		<img src='wwdcScholar.gif' title='Video Walkthrough' height="500px" alt='Video Walkthrough'/>
 		<h1 style="margin-bottom:0px;">Adding a mapview in the app 'Scholars of WWDC' Tutorial</h1>
 		<p style="margin-top:0px;">by <a href="http://wwdcscholars.com/WWDC-Scholars-Web-2015/detail.php?page=c8KjIGMsco" target="_blank" style="text-decoration:none;"><b>Gelei Chen</b></a></p>
 
-		<img src='wwdcScholar.gif' title='Video Walkthrough' height="400px" alt='Video Walkthrough' />
+		<!-- AddToAny BEGIN -->
+			<div class="a2a_kit a2a_kit_size_32 a2a_default_style" style="margin-bottom:-20px;">
+				<a class="a2a_dd" href="https://www.addtoany.com/share?linkurl=http%3A%2F%2Fwwdcscholars.github.io%2FQTreeDemo%2F&amp;linkname=WWDCScholars%20Tutorials%20%7C%20How%20to%20Add%20A%20MapView%20Using%20QTree"></a>
+				<a class="a2a_button_facebook"></a>
+				<a class="a2a_button_twitter"></a>
+				<a class="a2a_button_google_plus"></a>
+				<a class="a2a_button_reddit"></a>
+				<a class="a2a_button_hacker_news"></a>
+			</div>
+			<br>
+		<!-- AddToAny END -->
+		</div>
 		<ul>
 			<li style="list-style-type: none;">
-				<h2>STEP 1: Integrate the library from <a href="https://github.com/blackm00n/QTree-objc" target="_blank"> QTree-objc Github Repo</a></h2>
-				<span style="color: #11740a; font-style: italic;">In my implementation, I added both <a href="https://github.com/WWDCScholars/QTreeDemo/blob/master/QTreeSwiftDemo/ClusterAnnotationView.h" target="_blank">ClusterAnnotationView.h</a> and <a href="https://github.com/WWDCScholars/QTreeDemo/blob/master/QTreeSwiftDemo/ClusterAnnotationView.m" target="_blank">ClusterAnnotationView.m</a> of the QTree Library. You can override it or customize or your own ClusterAnnotation</span>&nbsp;
+				<h2>STEP 1: Integrate the library from <a href="https://github.com/blackm00n/QTree-objc" target="_blank" style="color:#00aaa5; text-decoration:none;"><b>QTree-objc Github Repo</b></a></h2>
+				<p>In my implementation, I added both <a href="https://github.com/WWDCScholars/QTreeDemo/blob/master/QTreeSwiftDemo/ClusterAnnotationView.h" target="_blank" style="color:#00aaa5; text-decoration:none;"><b>ClusterAnnotationView.h</b></a> and <a href="https://github.com/WWDCScholars/QTreeDemo/blob/master/QTreeSwiftDemo/ClusterAnnotationView.m" target="_blank" style="color:#00aaa5; text-decoration:none;"><b>ClusterAnnotationView.m</b></a> of the QTree Library. You can override it or customize or your own ClusterAnnotation.</p>
 			</li>
 			<li style="list-style-type: none;">
 				<h2>STEP 2: Create Your Data Model</h2>
-				<p>Create a swift file that contains your data model. As an example, i've created a <a href="https://github.com/WWDCScholars/QTreeDemo/blob/master/QTreeSwiftDemo/Scholar.swift" target="_blank">Scholar.swift</a> file to represent my data model.</p>
+				<p>Create a swift file that contains your data model. As an example, i've created a <a href="https://github.com/WWDCScholars/QTreeDemo/blob/master/QTreeSwiftDemo/Scholar.swift" target="_blank" style="color:#00aaa5; text-decoration:none;"><b>Scholar.swift</b></a> file to represent my data model.</p>
 				<img src='screenshot/Scholar.png' width="60%"/>
 
 			</li>
@@ -59,19 +80,19 @@
 			</li>
 			<li style="list-style-type: none;">
 				<h2>STEP 4: Add ScholarAnnotation</h2>
-				<p>Scholar Annotations are the annotaions on mapView that representents each Scholars.</p> 
+				<p>Scholar Annotations are the annotations on mapView that representents each Scholars.</p> 
 				<img src='screenshot/scholarAnnotationDemo.png' width="20%"/>
-				<p>As an example, i've created a <a href="https://github.com/WWDCScholars/QTreeDemo/blob/master/QTreeSwiftDemo/ScholarAnnotation.swift" target="_blank">ScholarAnnotation.swift</a> file to represent my ScholarAnnotation shown on the map.</p>
+				<p>As an example, i've created a <a href="https://github.com/WWDCScholars/QTreeDemo/blob/master/QTreeSwiftDemo/ScholarAnnotation.swift" target="_blank" style="color:#00aaa5; text-decoration:none;"><b>ScholarAnnotation.swift</b></a> file to represent my ScholarAnnotation shown on the map.</p>
 				<img src='screenshot/ScholarAnnotation.png' width="65%"/>
 			</li>
 			<li style="list-style-type: none;">
 				<h2>STEP 5: Implement MKMapViewDelegate</h2>
-				<p>Lastly, we will implement the MKMapViewDelegate. Inside the <a href="https://github.com/WWDCScholars/QTreeDemo/blob/master/QTreeSwiftDemo/LocationViewController.swift" target="_blank">LocationViewController.swift</a>:</p>
+				<p>Lastly, we will implement the MKMapViewDelegate. Inside the <a href="https://github.com/WWDCScholars/QTreeDemo/blob/master/QTreeSwiftDemo/LocationViewController.swift" target="_blank" style="text-decoration:none;"><span style="color:#00aaa5;"><b>LocationViewController.swift</b></a></span>:</p>
 				<ol>
 					<li><h2>Create a "Find me" button</h2></li>
-					<p style="background-color:#f1f1f1;">Change you viewDidLoad method to the following:</p>
+					<p style="background-color:#f1f1f1;">Change you <span style="color:#00aaa5;"><b>viewDidLoad</b></span> method to the following:</p>
 					<img src='screenshot/viewDidLoad.png' width="100%"/>
-					<p style="background-color:#f1f1f1;">Then add a function for the button action. In my example, i've named it - buttonAction.</p>
+					<p style="background-color:#f1f1f1;">Then add a function for the button action. In my example, i've named it - <span style="color:#00aaa5;"><b>buttonAction</b></span>.</p>
 					<img src='screenshot/buttonAction.png' width="65%"/>
 
 					<li><h2>Initialize the data model</h2></li>
@@ -79,11 +100,11 @@
 					<img src='screenshot/initModel.png' width="70%"/>
 
 					<li><h2>Implement regionDidChangeAnimated</h2></li>
-					<p style="background-color:#f1f1f1;">regionDidChangeAnimated is one of the delegate method used by MKMapViewDelegate. This is where we will call the  reloadAnnotations method.</p>
+					<p style="background-color:#f1f1f1;"><span style="color:#00aaa5;"><b>regionDidChangeAnimated</b></span> is one of the delegate method used by MKMapViewDelegate. This is where we will call the  <span style="color:#00aaa5;">reloadAnnotations</b></span> method.</p>
 					<img src='screenshot/regionDidChangeAnimated.png' width="65%"/>
 					
 					<li><h2>Implement reloadAnnotations</h2></li>
-					<p style="background-color:#f1f1f1;">Every time user change the map scale, we will call reloadAnnotations. This will update our mapView correspondingly</p>
+					<p style="background-color:#f1f1f1;">Every time user change the map scale, we will call <span style="color:#00aaa5;"><b>reloadAnnotations</b></span>. This will update our mapView correspondingly.</p>
 					<img src='screenshot/reloadAnnotations.png' width="80%"/>
 
 
@@ -94,6 +115,28 @@
 			</li>
 		</ul>
 	
+	</div>
+	<div class="container" style="margin-top:-20px;">
+	<!-- AddToAny BEGIN -->
+			<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+				<p> Did you like our tutorial? Don't forget to share it with your friends :) </p>
+				<a class="a2a_dd" href="https://www.addtoany.com/share?linkurl=http%3A%2F%2Fwwdcscholars.github.io%2FQTreeDemo%2F&amp;linkname=WWDCScholars%20Tutorials%20%7C%20How%20to%20Add%20A%20MapView%20Using%20QTree" style="margin-top:-10px;"></a>
+				<a class="a2a_button_facebook" style="margin-top:-10px;"></a>
+				<a class="a2a_button_twitter" style="margin-top:-10px;"></a>
+				<a class="a2a_button_google_plus" style="margin-top:-10px;"></a>
+				<a class="a2a_button_reddit" style="margin-top:-10px;"></a>
+				<a class="a2a_button_hacker_news" style="margin-top:-10px;"></a>
+			</div>
+
+			<p style="margin-bottom:-5px;"> If you are a WWDCScholar or WWDCStudent and wants to share your knowlegde and experience, just message <a href="mailto:veryhappymichie@gmail.com" style="color:#00aaa5;"><b>HERE</b></a>. </p>
+			<script>
+			var a2a_config = a2a_config || {};
+			a2a_config.linkname = "WWDCScholars Tutorials | How to Add A MapView Using QTree";
+			a2a_config.linkurl = "http://wwdcscholars.github.io/QTreeDemo/";
+			a2a_config.onclick = 1;
+			</script>
+			<script async src="https://static.addtoany.com/menu/page.js"></script>
+		<!-- AddToAny END -->
 	</div>
 
 	<div id="footer">
